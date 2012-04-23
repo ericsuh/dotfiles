@@ -1,0 +1,15 @@
+[core]
+	excludesfile = ~/.gitignore
+[alias]
+	st = status
+	co = checkout
+	logg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	log-today = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  --after=yesterday
+	head = log -n1
+	staged = diff --staged
+	br = branch -a
+	lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
+[push]
+	default = upstream
+[color]
+	ui = auto

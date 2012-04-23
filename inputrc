@@ -1,0 +1,10 @@
+# Commented-out lines are for bash v4, not included on OS X
+set completion-ignore-case on
+# set completion-prefix-display-length 2
+Control-j: menu-complete
+# Control-k: menu-complete-backward
+"\e[B": history-search-forward
+"\e[A": history-search-backward
+$if Bash
+	Space: magic-space
+$endif

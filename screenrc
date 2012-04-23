@@ -1,0 +1,9 @@
+escape ^Bb # make command character Ctrl-b instead of Ctrl-a 
+autodetach on # detach session on hangup instead of terminating screen
+startup_message off # trn off splash screen
+defscrollback 1000
+
+shelltitle "$ |bash"
+caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{W} %d/%m %c %{g}]'
