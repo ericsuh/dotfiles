@@ -5,7 +5,7 @@ import os
 import sys
 
 def main(args):
-    dirname = os.path.dirname(args[0])
+    dirname = os.path.dirname(os.path.abspath(args[0]))
     files_dir = os.path.join(dirname, 'files')
     with open(os.path.join(dirname, 'mapping.txt')) as path_mapping:
         mapping = [line.strip().split('\t') for line in path_mapping]
@@ -18,8 +18,15 @@ def main(args):
         except OSError as e:
             if e.errno != errno.EEXIST:
                 raise
+        if os.path.lexists(destination_path):
+            if os.path.islink(destination_path):
+                print("Deleting link at {}".format(destination_path))
+                os.remove(destination_path)
+            else:
+                print("Skipping {}; non-link exists".format(destination_path))
+                continue
         print("Linking {}".format(destination_path))
-        # os.symlink(os.path.join(files_dir, filename), destination_path)
+        os.symlink(os.path.join(files_dir, filename), destination_path)
     return 0
 
 

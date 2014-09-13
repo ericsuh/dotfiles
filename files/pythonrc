@@ -1,3 +1,4 @@
+# This only works with a real readline module, i.e. not Mac OS X
 try:
 	import readline
 	import rlcompleter

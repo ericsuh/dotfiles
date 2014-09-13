@@ -9,4 +9,4 @@ profile	~/.profile
 pythonrc	~/.pythonrc
 screenrc	~/.screenrc
 slate	~/.slate
-tmux.conf	~/tmux.conf
+tmux.conf	~/.tmux.conf
