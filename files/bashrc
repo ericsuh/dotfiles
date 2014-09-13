@@ -1,5 +1,6 @@
 export CDPATH='.:${HOME}:${CDPATH}'
 export PATH="${HOME}/bin:${PATH}"
+export PYTHONSTARTUP="${HOME}/.pythonrc"
 
 source ${HOME}/.bash_aliases
 source ~/.git-completion.bash

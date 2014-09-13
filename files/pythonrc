@@ -1,0 +1,6 @@
+try:
+	import readline
+	import rlcompleter
+	readline.parse_and_bind('tab: complete')
+except ImportError:
+	print("Modules readline or rlcompleter not available")
