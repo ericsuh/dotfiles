@@ -3,6 +3,7 @@
 	email = "eric@ericsuh.com"
 [core]
 	excludesfile = ~/.gitignore
+	editor = /usr/bin/vim
 [alias]
 	st = status -sb
 	co = checkout
