@@ -16,6 +16,8 @@
 	br = branch -a
 	lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
 	df = diff -b --color-words
+	blog = !bash -c 'git logg --ancestry-path $(git merge-base --octopus master "$1")~1.."$1" "${@: 3}" ' - 
+	bdiff = !bash -c 'git diff $(git merge-base --octopus "$1" "$2").."$2" ' -
 [push]
 	default = simple
 [rebase]
