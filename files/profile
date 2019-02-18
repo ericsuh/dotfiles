@@ -12,16 +12,35 @@ export CLICOLOR=1
 export LSCOLORS=BxFxCxDxCxegedabagacad
 export EDITOR=vim
 
-# enable color support of ls in Ubuntu and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+export CDPATH=".:${HOME}:${CDPATH}"
+export PATH="${HOME}/bin:${PATH}"
+export PYTHONSTARTUP="${HOME}/.pythonrc"
 
 LOCAL_PROFILE="${HOME}/.profile_local"
 if [ -e ${LOCAL_PROFILE} ]; then
 	source ${LOCAL_PROFILE}
+fi
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export PATH="$HOME/.cargo/bin:/usr/local/go/bin:$PATH"
+
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+	/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+	chmod 600 "${SSH_ENV}"
+	. "${SSH_ENV}" > /dev/null
+	/usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	}
+else
+    start_agent;
 fi
