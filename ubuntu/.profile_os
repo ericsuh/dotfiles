@@ -1,0 +1,1 @@
+export LS_COLORS="${LS_COLORS}:di=32:ln=35:so=33:pi=33:ex=31:bd=34;47:cd=34;47:su=31;47:sg=31;47:tw=32;47:ow=32;47"

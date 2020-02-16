@@ -1,0 +1,5 @@
+# This is BSD color format
+#
+# This was the old color set
+# export LSCOLORS=BxFxCxDxCxegedabagacad
+export LSCOLORS=cxfxdxdxbxehehbhbhchch

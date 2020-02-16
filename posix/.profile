@@ -9,23 +9,23 @@ export LC_CTYPE=en_US.UTF-8 # For possible non-ASCII filenames
 # to allow for good line wrapping
 export PS1='\[\033k\033\\\033[7h\][\u@\h:\W]$ '
 export CLICOLOR=1
-export LSCOLORS=BxFxCxDxCxegedabagacad
 export EDITOR=vim
 
-export CDPATH=".:${HOME}:${CDPATH}"
-export PATH="${HOME}/bin:${PATH}"
 export PYTHONSTARTUP="${HOME}/.pythonrc"
 
-LOCAL_PROFILE="${HOME}/.profile_local"
-if [ -e ${LOCAL_PROFILE} ]; then
-	source ${LOCAL_PROFILE}
-fi
+# set PATH so it includes user's private bin if it exists
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export PATH="$HOME/.cargo/bin:/usr/local/go/bin:$PATH"
+if [ -d "$HOME/bin" ];         then PATH="$HOME/bin:$PATH"; fi
+if [ -d "$HOME/.local/bin" ];  then PATH="$HOME/.local/bin:$PATH"; fi
+if [ -d "$HOME/.cargo/bin" ];  then PATH="$HOME/.cargo/bin:$PATH"; fi
+if [ -d "/usr/local/go/bin" ]; then PATH="/usr/local/go/bin:$PATH"; fi
+
+export PATH
+
+# Set up SSH settings
 
 SSH_ENV="$HOME/.ssh/environment"
-
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 function start_agent {
 	/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
 	chmod 600 "${SSH_ENV}"
@@ -44,3 +44,6 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+if [ -e "${HOME}/.profile_os" ];    then source "${HOME}/.profile_os"; fi
+if [ -e "${HOME}/.profile_local" ]; then source "${HOME}/.profile_local"; fi
