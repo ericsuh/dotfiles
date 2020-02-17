@@ -29,17 +29,14 @@ set ignorecase
 set smartcase
 " Allows ,/ to clear search highlights
 nnoremap <leader>/ :noh<CR>
-hi Search ctermbg=white ctermfg=black guibg=lightblue
-
-""" Solarized
-
-let g:solarized_termtrans=1
-colorscheme solarized
+hi Search ctermbg=LightGray ctermfg=DarkBlue guibg=LightBlue
 
 """ Syntax highlighting
 
 syntax enable
 set background=light
+let g:solarized_termcolors=16
+colorscheme solarized
 set showmatch " Parentheses and braces
 set backspace=indent,eol,start " fix backspace
 if exists('+colorcolumn')
@@ -69,10 +66,14 @@ set showcmd
 set wildmenu  " command autocomplete
 set wildmode=list:longest
 
+" Desired colorscheme for StatusLine with light background:
+"     Active line: bg=base2, fg=base01
+"     Inactive line: bg=base2, fg=base1
+" (StatusLine colors are inverted from solarized colorscheme)
+" Taken 
+hi StatusLine term=NONE ctermfg=7 ctermbg=10
+hi StatusLineNC term=NONE ctermfg=7 ctermbg=14
 set laststatus=2
-hi StatusLine term=NONE cterm=NONE gui=NONE ctermbg=darkgray ctermfg=black  guibg=black guifg=white
-hi StatusLineNC term=NONE cterm=NONE gui=NONE ctermbg=darkgray ctermfg=white guibg=darkgray guifg=white
-
 set statusline =
 set statusline +=\ %n             "buffer number
 set statusline +=\ %y             "file type
@@ -82,9 +83,7 @@ set statusline +=\ %m             "modified flag
 set statusline +=%r               "read-only flag
 " set statusline +=%=             "left-right seperator
 set statusline +=\ Line\ %l\ of\ %L  "current line / total lines
-set statusline +=\ --%P--      " percent of file
 set statusline +=\ Col\ %c            "column number
-
 
 """ Omnicomplete
 
