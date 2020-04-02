@@ -27,16 +27,42 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-" Allows ,/ to clear search highlights
-nnoremap <leader>/ :noh<CR>
-hi Search ctermbg=LightGray ctermfg=DarkBlue guibg=LightBlue
+nnoremap <leader>/ :noh<CR>  " Allows ,/ to clear search highlights
 
-""" Syntax highlighting
+""" Colorscheme
+" NOTE:
+"   StatusLine and StatusLineNC color setting names are inverted
+"   compared to what you would normally think.
+"   (e.g. set `ctermfg` to desired bg color).
 
 syntax enable
-set background=light
+
+" Solarized Dark colorscheme
+
+set background=dark
 let g:solarized_termcolors=16
 colorscheme solarized
+
+" Statusline colors
+" Desired colorscheme for StatusLine with dark background:
+"     StatusLine bg=base03, fg=base1
+"     StatusLineNC bg=base02, fg=base1
+hi StatusLine term=NONE ctermfg=15 ctermbg=10
+hi StatusLineNC term=NONE ctermfg=7 ctermbg=14
+hi ErrorMsg term=NONE ctermbg=9 ctermfg=0
+hi Search term=NONE ctermbg=11 ctermfg=7
+
+"" Solarized Light colorscheme
+"" Desired colorscheme for StatusLine with light background:
+""     StatusLine bg=base2, fg=base01
+""     StatusLineNC bg=base2, fg=base1
+" hi StatusLine term=NONE ctermfg=8 ctermbg=14
+" hi StatusLineNC term=NONE ctermfg=0 ctermbg=14
+" hi ErrorMsg term=NONE ctermfg=8 ctermbg=9
+" hi Search term=NONE ctermfg=11 ctermbg=7 
+
+""" Syntax highlighting settings
+
 set showmatch " Parentheses and braces
 set backspace=indent,eol,start " fix backspace
 if exists('+colorcolumn')
@@ -47,7 +73,6 @@ endif
 set list
 set listchars=tab:>\ ,trail:~,extends:>,precedes:<
 set cursorline
-hi ErrorMsg ctermbg=black guibg=white guifg=red
 
 """ Whitespace and folds
 
@@ -66,13 +91,6 @@ set showcmd
 set wildmenu  " command autocomplete
 set wildmode=list:longest
 
-" Desired colorscheme for StatusLine with light background:
-"     Active line: bg=base2, fg=base01
-"     Inactive line: bg=base2, fg=base1
-" (StatusLine colors are inverted from solarized colorscheme)
-" Taken 
-hi StatusLine term=NONE ctermfg=7 ctermbg=10
-hi StatusLineNC term=NONE ctermfg=7 ctermbg=14
 set laststatus=2
 set statusline =
 set statusline +=\ %n             "buffer number
