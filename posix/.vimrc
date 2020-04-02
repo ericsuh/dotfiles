@@ -30,36 +30,60 @@ set smartcase
 nnoremap <leader>/ :noh<CR>  " Allows ,/ to clear search highlights
 
 """ Colorscheme
-" NOTE:
-"   StatusLine and StatusLineNC color setting names are inverted
-"   compared to what you would normally think.
-"   (e.g. set `ctermfg` to desired bg color).
 
 syntax enable
 
-" Solarized Dark colorscheme
+" Set to "dark" or "light"
+let s:bg_type = 'dark'
 
-set background=dark
+" ANSI-16 Solarized colors
 let g:solarized_termcolors=16
+let s:sol_base03 = 8
+let s:sol_base02 = 0
+let s:sol_base01 = 10
+let s:sol_base00 = 11
+let s:sol_base0 = 12
+let s:sol_base1 = 14
+let s:sol_base2 = 7
+let s:sol_base3 = 15
+let s:sol_yellow = 3
+let s:sol_orange = 9
+let s:sol_red = 1
+let s:sol_magenta = 5
+let s:sol_violet = 13
+let s:sol_blue = 4
+let s:sol_cyan = 6
+let s:sol_green = 2
+
+if s:bg_type ==# 'dark'
+  let s:status_line_bg = s:sol_base02
+  let s:status_line_fg = s:sol_base1
+  let s:status_line_nc_bg = s:sol_base03
+  let s:status_line_nc_fg = s:sol_base01
+  let s:error_msg_bg = s:sol_base03
+  let s:error_msg_fg = s:sol_orange
+  let s:search_bg = s:sol_red
+  let s:search_fg = s:sol_base3
+else
+  let s:status_line_bg = s:sol_base2
+  let s:status_line_fg = s:sol_base01
+  let s:status_line_nc_bg = s:sol_base3
+  let s:status_line_nc_fg = s:sol_base1
+  let s:error_msg_bg = s:sol_base3
+  let s:error_msg_fg = s:sol_orange
+  let s:search_bg = s:sol_red
+  let s:search_fg = s:sol_base3
+endif
+
+exe "set background=" .s:bg_type
 colorscheme solarized
-
-" Statusline colors
-" Desired colorscheme for StatusLine with dark background:
-"     StatusLine bg=base03, fg=base1
-"     StatusLineNC bg=base02, fg=base1
-hi StatusLine term=NONE ctermfg=0 ctermbg=14
-hi StatusLineNC term=NONE ctermfg=8 ctermbg=10
-hi ErrorMsg term=NONE ctermbg=9 ctermfg=0
-hi Search term=NONE ctermbg=11 ctermfg=7
-
-"" Solarized Light colorscheme
-"" Desired colorscheme for StatusLine with light background:
-""     StatusLine bg=base2, fg=base01
-""     StatusLineNC bg=base2, fg=base1
-" hi StatusLine term=NONE ctermfg=8 ctermbg=14
-" hi StatusLineNC term=NONE ctermfg=0 ctermbg=14
-" hi ErrorMsg term=NONE ctermfg=8 ctermbg=9
-" hi Search term=NONE ctermfg=11 ctermbg=7 
+" NOTE:
+"   Color settings for `StatusLine`, `StatusLineNC`, `ErrorMsg`, and `Search`
+"   are inverted from what you normally think, e.g. `ctermfg` sets the bg color
+exe "hi StatusLine term=NONE ctermfg=" .s:status_line_bg ." ctermbg=" .s:status_line_fg
+exe "hi StatusLineNC term=NONE ctermfg=" .s:status_line_nc_bg ." ctermbg=" .s:status_line_nc_fg
+exe "hi ErrorMsg term=NONE ctermfg=" .s:error_msg_bg ." ctermbg=" .s:error_msg_fg 
+exe "hi Search term=NONE ctermfg=" .s:search_bg ." ctermbg=" .s:search_fg
 
 """ Syntax highlighting settings
 
