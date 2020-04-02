@@ -47,8 +47,8 @@ colorscheme solarized
 " Desired colorscheme for StatusLine with dark background:
 "     StatusLine bg=base03, fg=base1
 "     StatusLineNC bg=base02, fg=base1
-hi StatusLine term=NONE ctermfg=15 ctermbg=10
-hi StatusLineNC term=NONE ctermfg=7 ctermbg=14
+hi StatusLine term=NONE ctermfg=0 ctermbg=14
+hi StatusLineNC term=NONE ctermfg=8 ctermbg=10
 hi ErrorMsg term=NONE ctermbg=9 ctermfg=0
 hi Search term=NONE ctermbg=11 ctermfg=7
 
