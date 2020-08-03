@@ -38,7 +38,6 @@ build/*
 # OS generated files
 .DS_Store
 ehthumbs.db
-Icon?
 ._*
 Thumbs.db
 .Spotlight-V100

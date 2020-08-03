@@ -1,24 +1,27 @@
-[submodule "posix/.vim/pack/plugins/start/surround"]
-	path = posix/.vim/pack/plugins/start/surround
+[submodule "posix/dot-vim/pack/plugins/start/surround"]
+	path = posix/dot-vim/pack/plugins/start/surround
 	url = https://tpope.io/vim/surround.git
-[submodule "posix/.vim/pack/plugins/start/commentary"]
-	path = posix/.vim/pack/plugins/start/commentary
+[submodule "posix/dot-vim/pack/plugins/start/commentary"]
+	path = posix/dot-vim/pack/plugins/start/commentary
 	url = https://tpope.io/vim/commentary.git
-[submodule "posix/.vim/pack/plugins/start/kwbdi.vim"]
-	path = posix/.vim/pack/plugins/start/kwbdi.vim
+[submodule "posix/dot-vim/pack/plugins/start/kwbdi.vim"]
+	path = posix/dot-vim/pack/plugins/start/kwbdi.vim
 	url = https://github.com/vim-scripts/kwbdi.vim
-[submodule "posix/.vim/pack/plugins/start/typescript-vim"]
-	path = posix/.vim/pack/plugins/start/typescript-vim
+[submodule "posix/dot-vim/pack/plugins/start/typescript-vim"]
+	path = posix/dot-vim/pack/plugins/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim
-[submodule "posix/.vim/pack/plugins/start/vim-indent-object"]
-	path = posix/.vim/pack/plugins/start/vim-indent-object
+[submodule "posix/dot-vim/pack/plugins/start/vim-indent-object"]
+	path = posix/dot-vim/pack/plugins/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
-[submodule "posix/.vim/pack/plugins/start/vim-fugitive"]
-	path = posix/.vim/pack/plugins/start/vim-fugitive
+[submodule "posix/dot-vim/pack/plugins/start/vim-fugitive"]
+	path = posix/dot-vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "posix/.vim/pack/plugins/start/vim-colors-solarized"]
-	path = posix/.vim/pack/plugins/start/vim-colors-solarized
+[submodule "posix/dot-vim/pack/plugins/start/vim-colors-solarized"]
+	path = posix/dot-vim/pack/plugins/start/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
-[submodule "posix/.vim/pack/plugins/start/vim-dim"]
-	path = posix/.vim/pack/plugins/start/vim-dim
+[submodule "posix/dot-vim/pack/plugins/start/vim-dim"]
+	path = posix/dot-vim/pack/plugins/start/vim-dim
 	url = https://github.com/jeffkreeftmeijer/vim-dim
+[submodule "posix/dot-vim/pack/plugins/start/vim-eslint-compiler"]
+	path = posix/dot-vim/pack/plugins/start/vim-eslint-compiler
+	url = https://github.com/salomvary/vim-eslint-compiler.git

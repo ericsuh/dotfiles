@@ -5,7 +5,7 @@ editor = /usr/bin/vim
 [alias]
 st = status -sb
 co = checkout
-logg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches --all
+logg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 log-today = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  --after=yesterday
 head = log -n1
 staged = diff --staged
@@ -18,7 +18,7 @@ blog = !bash -c 'git logg --ancestry-path $(git merge-base --octopus master "$1"
 bdiff = !bash -c 'git diff $(git merge-base --octopus "$1" "$2").."$2" ' -
 
 [push]
-default = simple
+	default = current
 
 [rebase]
 state = true
@@ -30,3 +30,8 @@ branch = true
 
 [include]
 path = ~/.gitconfig_local
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
