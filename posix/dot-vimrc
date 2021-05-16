@@ -47,7 +47,6 @@ else
 endif
 set list
 set listchars=tab:>\ ,trail:~,extends:>,precedes:<
-set cursorline
 
 """ Whitespace and folds
 
@@ -93,13 +92,19 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 """""""""""""""""""
 " Plugin settings "
 
+""" CoC
+
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>qf <Plug>(coc-fix-current)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 """ typescript-vim
 
 let g:typescript_compiler_options = ''
-
-""" ALE
-
-let g:airline#extensions#ale#enabled = 0
 
 """" Indent Guides
 
