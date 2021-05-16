@@ -28,3 +28,6 @@
 [submodule "posix/dot-vim/pack/js-ts/coc-tsserver"]
 	path = posix/dot-vim/pack/js-ts/coc-tsserver
 	url = https://github.com/neoclide/coc-tsserver
+[submodule "posix/dot-vim/pack/js-ts/coc-prettier"]
+	path = posix/dot-vim/pack/js-ts/coc-prettier
+	url = https://github.com/neoclide/coc-prettier

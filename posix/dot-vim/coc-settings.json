@@ -1,8 +1,24 @@
 {
+	"coc": {
+		"preferences": {
+			"formatOnSaveFiletypes": ["css", "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown"]
+		}
+	},
 	"diagnostic": {
 		"errorSign": "!",
 		"warningSign": "?",
 		"infoSign": "i",
 		"hintSign": ">"
-	}
+	},
+	"list.insertMappings": {
+		"<C-j>": "do:next",
+		"<C-k>": "do:previous"
+	},
+	"list.normalMappings": {
+		"<C-j>": "do:next",
+		"<C-k>": "do:previous",
+		"p": "action:preview",
+		"x": "do:toggle"
+	},
+	"list.source.location.defaultOptions": ["--auto-preview", "--normal", "--interactive"]
 }
