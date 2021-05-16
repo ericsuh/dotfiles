@@ -16,3 +16,15 @@
 [submodule "posix/dot-vim/pack/tools/start/vim-fugitive"]
 	path = posix/dot-vim/pack/tools/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "posix/dot-vim/pack/js-ts/start/vim-javascript"]
+	path = posix/dot-vim/pack/js-ts/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "posix/dot-vim/pack/js-ts/start/vim-jsx-pretty"]
+	path = posix/dot-vim/pack/js-ts/start/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty
+[submodule "posix/dot-vim/pack/edit-plugins/start/coc.nvim"]
+	path = posix/dot-vim/pack/edit-plugins/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "posix/dot-vim/pack/js-ts/coc-tsserver"]
+	path = posix/dot-vim/pack/js-ts/coc-tsserver
+	url = https://github.com/neoclide/coc-tsserver
