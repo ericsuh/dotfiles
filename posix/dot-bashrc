@@ -32,6 +32,7 @@ function start_agent {
 export PS1='\[\033k\033\\\033[7h\][\u@\h:\W]$ '
 export CLICOLOR=1
 export EDITOR=vim
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 source ${HOME}/.bash_aliases
 source ~/.git-completion.bash
@@ -45,3 +46,5 @@ if [ -f '/home/eric/google-cloud-sdk/completion.bash.inc' ]; then . '/home/eric/
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
