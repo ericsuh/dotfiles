@@ -4,4 +4,4 @@
 stow --dotfiles -t "${HOME}" macos
 stow --dotfiles --defer=.* -t "${HOME}" posix
 stow --dotfiles --defer=.* -t "${HOME}/.config" posix-dot-config
-nvim --headless +PlugInstall +qa
+nvim --headless -s nvim-init.vim +q
