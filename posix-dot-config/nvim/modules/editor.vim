@@ -31,3 +31,5 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 set hidden " Work with multiple buffers without having to save
 inoremap <C-space> <C-x><C-o>
 
+set clipboard=unnamed
+
