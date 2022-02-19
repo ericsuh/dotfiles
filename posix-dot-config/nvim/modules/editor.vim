@@ -32,4 +32,5 @@ set hidden " Work with multiple buffers without having to save
 inoremap <C-space> <C-x><C-o>
 
 set clipboard=unnamed
+nnoremap Y yy " Allows ,/ to clear search highlights
 

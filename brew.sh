@@ -1,8 +1,5 @@
-#! /usr/bin/sh
+#! /usr/bin/env bash
 
 brew update
-brew install stow 
-brew install neovim
-brew install ripgrep
-brew install fzf
+brew install stow neovim ripgrep fzf
 $(brew --prefix)/opt/fzf/install
