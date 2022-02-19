@@ -1,0 +1,53 @@
+#!/bin/bash
+
+SHORTCUT_CMD="F"
+SHORTCUT_CMD_PATH="${HOME}/.local/bin/${SHORTCUT_CMD}"
+SHORTCUTS_MATCHES_FILE="${HOME}/.srgmatches"
+
+TMP_FILENAME=''
+
+display_shortcuts() {
+    awk -v f_name=${TMP_FILENAME} -F':' '
+    BEGIN {x=1};
+    {
+        if ($1 != f_name) {
+            printf("\n%s\n", $1);
+            f_name=$1;
+        };
+        printf("[%s] ", x);
+        printf("%s", $2);
+        for (i=3; i<= NF; i++) {
+            printf(":%s", $i);
+        }
+        printf("\n");
+        x++;
+    };'
+}
+
+strip_colors() {
+    sed -E "s/\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"
+}
+
+format_shortcuts() {
+    awk -F':' '
+    {
+        print $2 " " $1;
+    };'
+}
+
+create_shortcut_cmd() {
+    cat > "${SHORTCUT_CMD_PATH}" <<END
+#!/bin/bash
+
+MATCH=\$(sed -n "\$1p" < ${SHORTCUTS_MATCHES_FILE})
+MATCH_LINE=\$(echo "\$MATCH" | cut -d" " -f1)
+MATCH_FILE=\$(echo "\$MATCH" | sed 's/'\$MATCH_LINE' //')
+
+vim +"\${MATCH_LINE}" "\${MATCH_FILE}"
+END
+    chmod +x "${SHORTCUT_CMD_PATH}"
+}
+
+rg --color=always --with-filename --line-number "$@" | tee >/dev/null >(display_shortcuts) >(strip_colors | format_shortcuts > "${SHORTCUTS_MATCHES_FILE}");
+
+create_shortcut_cmd
