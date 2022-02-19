@@ -1,7 +1,7 @@
 """ Visual settings
 set visualbell
 set number                  " line numbers
-set background=dark
+set background=light
 set foldmethod=manual
 syntax on                   " syntax highlighting
 

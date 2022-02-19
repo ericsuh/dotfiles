@@ -17,6 +17,9 @@ df = diff -b --color-words
 blog = !bash -c 'git logg --ancestry-path $(git merge-base --octopus master "$1")~1.."$1" "${@: 3}" ' - 
 bdiff = !bash -c 'git diff $(git merge-base --octopus "$1" "$2").."$2" ' -
 
+[diff]
+    algorithm = histogram
+
 [push]
 	default = current
 
