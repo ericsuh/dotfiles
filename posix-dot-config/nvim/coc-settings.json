@@ -1,12 +1,17 @@
 {
     "languageserver": {
         "golang": {
-            "command": "${HOME}/go/bin/gopls",
+            "command": "gopls",
             "rootPatterns": ["go.mod", ".git/"],
             "filetypes": ["go"]
         },
+        "javascript": {
+            "command": "tsserver",
+            "rootPatterns": ["package.json", ".git/"],
+            "filetypes": ["js", "jsx"]
+        },
         "typescript": {
-            "command": "${HOME}/go/bin/gopls",
+            "command": "tsserver",
             "rootPatterns": ["package.json", ".git/"],
             "filetypes": ["ts", "tsx"]
         }

@@ -9,7 +9,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-prettier'
 Plug 'kevinoid/vim-jsonc'
 
 call plug#end()
@@ -34,6 +33,6 @@ hi FgCocErrorFloatBgCocFloating ctermfg=black ctermbg=gray guibg=gray
 
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-yaml', 'coc-prettier']
+let g:coc_global_extensions = ['coc-css', 'coc-eslint', 'coc-git', 'coc-go', 'coc-jedi', 'coc-json', 'coc-prettier', 'coc-sh', 'coc-sql', 'coc-toml', 'coc-tsserver', 'coc-yaml']
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
