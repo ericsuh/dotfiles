@@ -1,1 +1,20 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export PYTHONSTARTUP="${HOME}/.pythonrc"
+export EDITOR=vim
+
+function add_path() {
+  if [ -d "$1" ]; then
+    PATH="$1:$PATH"
+  fi
+}
+
+# set PATH so it includes user's private bin if it exists
+
+add_path "$HOME/bin"
+add_path "$HOME/.local/bin"
+add_path "$HOME/.local/bin/dart-sass"
+add_path "$HOME/.cargo/bin"
+add_path "/usr/local/go/bin"
+add_path "$HOME/.nodenv/shims"
+add_path "$HOME/.pyenv/shims"
+
+export PATH

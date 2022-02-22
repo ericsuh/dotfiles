@@ -31,8 +31,10 @@ bindkey \^U backward-kill-line
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-export PATH="${HOME}/.local/bin:${PATH}"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PROMPT="%2~ %# "
 
-if [ -e "$HOME/.zshrc_local" ]; then source "$HOME/.zshrc_local"; fi
+if [ -f "$HOME/.fzf.zsh" ]; then source "$HOME/.fzf.zsh"; fi
+
+if [ -f "$HOME/.zshrc_os" ]; then source "$HOME/.zshrc_os"; fi
+if [ -f "$HOME/.zshrc_local" ]; then source "$HOME/.zshrc_local"; fi
