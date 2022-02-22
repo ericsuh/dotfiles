@@ -31,10 +31,16 @@ bindkey \^U backward-kill-line
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-
 export PROMPT="%2~ %# "
+export PYTHONSTARTUP="${HOME}/.pythonrc"
+export EDITOR=vim
 
-if [ -f "$HOME/.fzf.zsh" ]; then source "$HOME/.fzf.zsh"; fi
+function source_exists() {
+  if [ -f "$1" ]; then
+    source "$1"
+  fi
+}
 
-if [ -f "$HOME/.zshrc_os" ]; then source "$HOME/.zshrc_os"; fi
-if [ -f "$HOME/.zshrc_local" ]; then source "$HOME/.zshrc_local"; fi
+source_exists "$HOME/.fzf.zsh"
+source_exists "$HOME/.zshrc_os"
+source_exists "$HOME/.zshrc_local"
