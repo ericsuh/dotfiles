@@ -37,13 +37,13 @@ format_shortcuts() {
 
 create_shortcut_cmd() {
     cat > "${SHORTCUT_CMD_PATH}" <<END
-#!/bin/bash
+#!/usr/bin/env bash
 
 MATCH=\$(sed -n "\$1p" < ${SHORTCUTS_MATCHES_FILE})
 MATCH_LINE=\$(echo "\$MATCH" | cut -d" " -f1)
 MATCH_FILE=\$(echo "\$MATCH" | sed 's/'\$MATCH_LINE' //')
 
-vim +"\${MATCH_LINE}" "\${MATCH_FILE}"
+nvim +"\${MATCH_LINE}" "\${MATCH_FILE}"
 END
     chmod +x "${SHORTCUT_CMD_PATH}"
 }
