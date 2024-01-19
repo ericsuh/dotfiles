@@ -18,6 +18,10 @@
     },
     "coc.preferences.useQuickfixForLocations": true,
     "coc.preferences.jumpCommand": "edit",
-    "coc.preferences.formatOnSaveFiletypes": ["ts", "tsx", "css", "js", "json", "yml", "yaml", "go"],
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
+    "coc.preferences.formatOnSaveFiletypes": ["json", "javascript", "typescript", "go", "python"],
+    "typescript.formatting.provider": "prettier",
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "tsserver.useLocalTsdk": true,
+    "python.venvFolders": [".venvs", ".venvs/py39"],
+    "python.formatting.provider": "black"
 }

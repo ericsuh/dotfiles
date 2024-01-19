@@ -17,6 +17,8 @@ setopt HIST_VERIFY
 
 autoload bashcompinit && bashcompinit
 
+fpath+="$HOME/.local/share/zsh/site-functions"
+
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle :compinstall filename ${ZDOTDIR:-$HOME}/.zshrc
@@ -34,6 +36,9 @@ export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export PROMPT="%2~ %# "
 export PYTHONSTARTUP="${HOME}/.pythonrc"
 export EDITOR=vim
+export VISUAL=vim
+
+bindkey -e
 
 function source_exists() {
   if [ -f "$1" ]; then
