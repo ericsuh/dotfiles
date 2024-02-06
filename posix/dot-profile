@@ -1,4 +1,8 @@
-export EDITOR=vim
+if which code; then
+  export EDITOR=code
+else
+  export EDITOR=vim
+fi
 export PYTHONSTARTUP="${HOME}/.pythonrc"
 
 function add_path() {
