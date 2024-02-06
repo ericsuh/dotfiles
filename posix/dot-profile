@@ -30,4 +30,3 @@ export PATH
 
 if [ -e "${HOME}/.profile_os" ];    then source "${HOME}/.profile_os"; fi
 if [ -e "${HOME}/.profile_local" ]; then source "${HOME}/.profile_local"; fi
-. "$HOME/.cargo/env"
