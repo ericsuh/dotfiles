@@ -1,0 +1,25 @@
+
+[git]
+push-branch-prefix = "esuh/"
+
+[core]
+fsmonitor = "watchman"
+
+[ui]
+default-command = "log"
+
+[ui.diff]
+format = "git"
+
+[template-aliases]
+"format_short_id(id)" = "id.shortest(12)"
+
+[revset-aliases]
+"orphans()" = "~::immutable_heads() & visible_heads() & mine() & branches(esuh/).. & ~@"
+
+[colors]
+"commit_id prefix" = { bold = true, underline = true }
+
+[user]
+name = "Eric Suh"
+email = "esuh@descript.com"

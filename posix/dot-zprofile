@@ -22,3 +22,6 @@ add_path "$HOME/.nodenv/shims"
 add_path "$HOME/.pyenv/shims"
 
 export PATH
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

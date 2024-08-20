@@ -31,11 +31,19 @@ compinit -i
 
 bindkey \^U backward-kill-line
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export PROMPT="%2~ %# "
 export PYTHONSTARTUP="${HOME}/.pythonrc"
-export EDITOR=vim
+if [ "\${TERM_PROGRAM:-}" = "vscode" ]; then
+  export EDITOR=code
+else
+  export EDITOR=vim
+fi
 export VISUAL=vim
 
 bindkey -e
@@ -49,3 +57,14 @@ function source_exists() {
 source_exists "$HOME/.fzf.zsh"
 source_exists "$HOME/.zshrc_os"
 source_exists "$HOME/.zshrc_local"
+
+# pnpm
+export PNPM_HOME="/Users/ericsuh/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+# add Pulumi to the PATH
+export PATH=$PATH:/Users/ericsuh/.pulumi/bin
+source <(jj util completion zsh)

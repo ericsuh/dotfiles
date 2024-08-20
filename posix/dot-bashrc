@@ -20,3 +20,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 [ -f "${HOME}/.bashrc_os" ] && source "${HOME}/.bashrc_os"
 [ -f "${HOME}/.bashrc_local" ] && source "${HOME}/.bashrc_local"
+
+source <(jj util completion bash)
